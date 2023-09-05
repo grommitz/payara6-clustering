@@ -9,7 +9,7 @@ public class RestApp extends ResourceConfig {
 
 	public RestApp() {
 		super();
-		packages(true, "com.grommitz");
+		packages(true, "com.github.grommitz");
 		property(ServerProperties.TRACING, "ON_DEMAND");
 		property(ServerProperties.TRACING_THRESHOLD, "VERBOSE");
 		property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);

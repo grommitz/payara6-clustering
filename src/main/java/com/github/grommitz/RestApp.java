@@ -1,4 +1,4 @@
-package com.grommitz;
+package com.github.grommitz;
 
 import jakarta.ws.rs.ApplicationPath;
 import org.glassfish.jersey.server.ResourceConfig;

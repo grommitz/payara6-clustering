@@ -19,12 +19,22 @@ JAVA_HOME=${JAVA17_HOME}
 # --hzconfigfile ./docker/hazelcast-aws.xml \
 # -Xdebug -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5006 \
   #
-echo "Starting the app on Payara $PAYARA_VER..."
+echo "Starting 2 instances of the app on Payara $PAYARA_VER..."
 
 ${JAVA17_HOME}/bin/java \
       -Xmx1024m \
       -jar $PAYARA_MICRO_JAR \
       --deploy ./target/payara6-clustering-1.0-SNAPSHOT.war \
-      --nocluster \
+      --clustermode multicast \
       --contextroot / \
-      --port 8080
+      --port 8080 > instance1.log 2>&1 &
+
+${JAVA17_HOME}/bin/java \
+      -Xmx1024m \
+      -jar $PAYARA_MICRO_JAR \
+      --deploy ./target/payara6-clustering-1.0-SNAPSHOT.war \
+      --clustermode multicast \
+      --contextroot / \
+      --port 8081 > instance2.log 2>&1 &
+
+echo "See the logs in instance1.log & instance2.log. Connect on http://localhost:8080/hello."

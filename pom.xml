@@ -4,24 +4,18 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.example</groupId>
-    <artifactId>payara6-issues-testbed</artifactId>
+    <groupId>com.github.grommitz</groupId>
+    <artifactId>payara6-clustering</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <payara.version>6.2023.6</payara.version>
+        <payara.version>6.2023.8</payara.version>
     </properties>
 
     <packaging>war</packaging>
-
-    <scm>
-        <url>https://bitbucket.org/cscdbs-bit/sslprovider-service.git</url>
-        <connection>scm:git:https://bitbucket.org/cscdbs-bit/sslprovider-service.git</connection>
-        <tag>HEAD</tag>
-    </scm>
 
     <dependencyManagement>
         <dependencies>
@@ -63,13 +57,10 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- test dependencies -->
-
         <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <scope>test</scope>
-            <version>5.8.2</version>
+            <groupId>org.eclipse.microprofile.health</groupId>
+            <artifactId>microprofile-health-api</artifactId>
+            <scope>provided</scope>
         </dependency>
 
     </dependencies>
@@ -95,6 +86,15 @@
                             <vendor>azul</vendor>
                         </jdk>
                     </toolchains>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.1</version>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
 

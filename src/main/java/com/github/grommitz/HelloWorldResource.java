@@ -1,4 +1,4 @@
-package com.grommitz;
+package com.github.grommitz;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

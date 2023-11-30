@@ -1,0 +1,1 @@
+set hazelcast-runtime-configuration.hazelcast-configuration-file=./hazelcast-multicast.xml

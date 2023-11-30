@@ -25,7 +25,7 @@ ${JAVA17_HOME}/bin/java \
       -Xmx1024m \
       -jar $PAYARA_MICRO_JAR \
       --deploy ./target/payara6-clustering-1.0-SNAPSHOT.war \
-      --clustermode multicast \
+      --prebootcommandfile preboot.txt \
       --contextroot / \
       --port 8080 > instance1.log 2>&1 &
 
@@ -33,7 +33,7 @@ ${JAVA17_HOME}/bin/java \
       -Xmx1024m \
       -jar $PAYARA_MICRO_JAR \
       --deploy ./target/payara6-clustering-1.0-SNAPSHOT.war \
-      --clustermode multicast \
+      --prebootcommandfile preboot.txt \
       --contextroot / \
       --port 8081 > instance2.log 2>&1 &
 
